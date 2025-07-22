@@ -46,7 +46,7 @@ declare global {
   }
 }
 
-if (typeof window !== 'undefined' && typeof window.jQuery !== 'undefined') {
+if (typeof window.jQuery !== 'undefined') {
   toast.option = defaultOption
   window.jQuery.toast = toast
 }
