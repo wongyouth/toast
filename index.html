@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <button onclick="onClick()">Click me</button>
+    </div>
+
+    <script type="module">
+      import { toast } from "/src/index.ts";
+
+      let counter = 0;
+
+      function onClick() {
+        counter++;
+        toast(`Counter ${counter}`);
+      }
+
+      window.onClick = onClick;
+    </script>
+  </body>
+</html>
