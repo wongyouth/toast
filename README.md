@@ -16,10 +16,10 @@ toast("Copied")
 
 #### With option
 
-Show a toast with black background and white font color.
+Hide notification after 5 seconds.
 
 ```
-toast("Copied", { backgroundColor: 'white', color: 'black' })
+toast("Copied", { hideAfter: 5000 })
 ```
 
 #### Common JS
@@ -42,7 +42,7 @@ $.toast.option.className = 'toast'
 
 ```
 import { toast, defaultOption } from '@wontyouth/toast'
-defaultOption.color = 'lightblue'
+defaultOption.hideAfter = 5000
 toast("Message Copied")
 ```
 

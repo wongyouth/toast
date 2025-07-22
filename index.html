@@ -16,8 +16,7 @@
       let counter = 0;
 
       function onClick() {
-        counter++;
-        toast(`Counter ${counter}`);
+        toast(`Clicked ${++counter} times`, { hideAfter: 5000 });
       }
 
       window.onClick = onClick;
