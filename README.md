@@ -1,6 +1,6 @@
 # Show a notification without blocking other elements
 
-![ScreenShot](./docs/screenshot.gif?raw=true)
+![ScreenShot](https://github.com/wongyouth/toast/raw/main/docs/screenshot.gif?raw=true)
 
 ## Features
 
