@@ -2,6 +2,7 @@ import { resolve } from 'node:path'
 /// <reference types="vitest" />
 import camelCase from 'camelcase'
 import { defineConfig } from 'vite'
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 import dts from 'vite-plugin-dts'
 import packageJson from './package.json'
 
@@ -16,7 +17,7 @@ export default defineConfig({
       fileName: packageName,
     },
   },
-  plugins: [dts({ rollupTypes: true })],
+  plugins: [dts({ rollupTypes: true }), cssInjectedByJsPlugin()],
   test: {
     environment: 'jsdom',
   },
