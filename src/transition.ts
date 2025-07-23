@@ -40,11 +40,12 @@ function afterTransition(element: Element) {
       .transitionDuration
       .replace(/s/g, '')
       .split(',')
+      .map(Number)
 
     const duration = Math.max(...times) * 1000
 
     setTimeout(() => {
-      resolve()
+      resolve(void 0)
     }, duration)
   })
 }

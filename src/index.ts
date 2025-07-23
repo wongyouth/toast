@@ -1,4 +1,4 @@
-import { enter, leave } from './transition.ts'
+import { enter, leave } from './transition'
 
 export const defaultOption = {
   hideAfter: 2000, // in milliseconds
