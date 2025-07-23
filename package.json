@@ -4,13 +4,13 @@
   "version": "0.1.0",
   "exports": {
     ".": {
-      "import": "./dist/vite-vanilla-library.js",
-      "require": "./dist/vite-vanilla-library.cjs"
+      "import": "./dist/toast.js",
+      "require": "./dist/toast.cjs"
     }
   },
-  "main": "./dist/vite-vanilla-library.cjs",
-  "module": "./dist/vite-vanilla-library.js",
-  "types": "./dist/vite-vanilla-library.d.ts",
+  "main": "./dist/toast.cjs",
+  "module": "./dist/toast.js",
+  "types": "./dist/toast.d.ts",
   "files": [
     "dist"
   ],
