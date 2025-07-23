@@ -31,7 +31,8 @@ toast("Copied", { hideAfter: 5000 })
 ```
 export const defaultOption = {
   hideAfter: 2000, // in milliseconds
-  className: "toast",
+  className: "", // element class name
+  transitionClassName: "wy-toast",
 
   // style
   backgroundColor: "black",
@@ -45,29 +46,33 @@ export const defaultOption = {
 
 #### Animation
 
-By default, using css transition to do animation.
-
-If you want to customizing animation, you can provide a different className and add your own css styles.
-
-If you don't want animation you can change the `className` option, so the css won't match.
+By default, using css transition to do animation. It's same logic that Vue 3 transition use.
 
 ```css
-.toast-active {
+.wy-toast-active {
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   opacity: 1;
   transform: translateY(0);
 }
 
-.toast-from {
+.wy-toast-from {
   opacity: 0;
   transform: translateY(+20px);
 }
 
-.toast-to {
+.wy-toast-to {
   opacity: 0;
   transform: translateY(-20px);
 }
 ```
+
+If you want to customize animation, you can provide a different transition className and add your own css styles.
+
+For example, with option transitionClassName: `notify`, you need to add 3 styles:
+
+- `notify-active`
+- `notify-from`
+- `notify-to`
 
 #### Common JS
 

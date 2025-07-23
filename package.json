@@ -8,7 +8,7 @@
       "require": "./dist/toast.cjs"
     }
   },
-  "main": "./dist/toast.cjs",
+  "main": "./dist/toast.iife.js",
   "module": "./dist/toast.js",
   "types": "./dist/toast.d.ts",
   "files": [

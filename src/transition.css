@@ -1,15 +1,15 @@
-.toast-active {
+.wy-toast-active {
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   opacity: 1;
   transform: translateY(0);
 }
 
-.toast-from {
+.wy-toast-from {
   opacity: 0;
   transform: translateY(+20px);
 }
 
-.toast-to {
+.wy-toast-to {
   opacity: 0;
   transform: translateY(-20px);
 }

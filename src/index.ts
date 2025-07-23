@@ -2,7 +2,8 @@ import { enter, leave } from './transition'
 
 export const defaultOption = {
   hideAfter: 2000, // in milliseconds
-  className: 'toast',
+  className: '',
+  transitionClassName: 'wy-toast', // transition class name
 
   // style
   backgroundColor: 'black',
@@ -19,7 +20,7 @@ export async function toast(
   message: string,
   option: Partial<ToastOption> = {},
 ) {
-  const { hideAfter, className, ...styleOption } = {
+  const { hideAfter, className, transitionClassName, ...styleOption } = {
     ...defaultOption,
     ...option,
   }
@@ -45,10 +46,10 @@ export async function toast(
   toastContainer.appendChild(toastElement)
   document.body.appendChild(toastContainer)
 
-  await enter(toastElement, className)
+  await enter(toastElement, transitionClassName)
 
   setTimeout(async () => {
-    await leave(toastElement, className)
+    await leave(toastElement, transitionClassName)
 
     toastContainer.remove()
   }, hideAfter)
