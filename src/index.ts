@@ -1,29 +1,38 @@
+import { enter, leave } from './transition.ts'
+
 export const defaultOption = {
   hideAfter: 2000, // in milliseconds
-  className: '',
+  className: 'toast',
 
   // style
   backgroundColor: 'black',
   borderRadius: '2px',
   boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
   color: 'white',
-  left: '50%',
   padding: '4px 8px',
-  position: 'fixed',
   fontSize: '14px',
-  top: '50%',
-  transform: 'translate(-50%)',
-  transition: 'opacity 0.3s ease-in-out',
-  zIndex: 999999,
 }
 
 export type ToastOption = typeof defaultOption
 
-export function toast(message: string, option: Partial<ToastOption> = {}) {
+export async function toast(
+  message: string,
+  option: Partial<ToastOption> = {},
+) {
   const { hideAfter, className, ...styleOption } = {
     ...defaultOption,
     ...option,
   }
+
+  const toastContainer = document.createElement('div')
+  Object.assign(toastContainer.style, {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    pointerEvents: 'none',
+    zIndex: '999999',
+  })
 
   const toastElement = document.createElement('div')
   toastElement.className = className
@@ -33,10 +42,15 @@ export function toast(message: string, option: Partial<ToastOption> = {}) {
     (toastElement.style as any)[key] = value
   }
 
-  document.body.appendChild(toastElement)
+  toastContainer.appendChild(toastElement)
+  document.body.appendChild(toastContainer)
 
-  setTimeout(() => {
-    toastElement.remove()
+  await enter(toastElement, className)
+
+  setTimeout(async () => {
+    await leave(toastElement, className)
+
+    toastContainer.remove()
   }, hideAfter)
 }
 

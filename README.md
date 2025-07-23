@@ -7,6 +7,7 @@
 - Show a notification on the center of screen
 - Without blocking other elements
 - All CSS can be customized
+- Fade int out animation by default
 
 ## Usage
 
@@ -20,6 +21,52 @@ Hide notification after 5 seconds.
 
 ```
 toast("Copied", { hideAfter: 5000 })
+```
+
+#### Option
+
+- **hideAfter** - hidding the notification after this duration
+- **className** - Notification Class name
+
+```
+export const defaultOption = {
+  hideAfter: 2000, // in milliseconds
+  className: "toast",
+
+  // style
+  backgroundColor: "black",
+  borderRadius: "2px",
+  boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+  color: "white",
+  padding: "4px 8px",
+  fontSize: "14px",
+};
+```
+
+#### Animation
+
+By default, using css transition to do animation.
+
+If you want to customizing animation, you can provide a different className and add your own css styles.
+
+If you don't want animation you can change the `className` option, so the css won't match.
+
+```css
+.toast-active {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-from {
+  opacity: 0;
+  transform: translateY(+20px);
+}
+
+.toast-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
 ```
 
 #### Common JS
