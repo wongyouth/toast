@@ -1,4 +1,6 @@
-# Show a notification without blocking
+# Show a notification without blocking other elements
+
+![ScreenShot](./docs/screenshot.gif?raw=true)
 
 ## Features
 
