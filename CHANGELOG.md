@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/wongyouth/toast/compare/v0.1.1...v0.1.2)
+
+### 🩹 Fixes
+
+- Update to push as public package ([8d124ac](https://github.com/wongyouth/toast/commit/8d124ac))
+- Update screenshot url to show correctly on npm site ([db55584](https://github.com/wongyouth/toast/commit/db55584))
+
+### ❤️ Contributors
+
+- Ryan Wang ([@wongyouth](https://github.com/wongyouth))
+
 ## v0.1.1
 
 
