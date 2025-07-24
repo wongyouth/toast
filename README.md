@@ -37,16 +37,26 @@ toast("Copied", { hideAfter: 5000 })
 ```
 export const defaultOption = {
   hideAfter: 2000, // in milliseconds
-  className: "", // element class name
-  transitionClassName: "wy-toast",
+  className: '',
+  transitionClassName: 'wy-toast', // transition class name
 
   // style
-  backgroundColor: "black",
-  borderRadius: "2px",
-  boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-  color: "white",
-  padding: "4px 8px",
-  fontSize: "14px",
+  backgroundColor: 'black',
+  borderRadius: '2px',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+  color: 'white',
+  padding: '4px 8px',
+  fontSize: '14px',
+
+  // container style
+  containerStyle: {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    pointerEvents: 'none',
+    zIndex: '999999',
+  },
 };
 ```
 

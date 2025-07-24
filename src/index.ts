@@ -12,6 +12,16 @@ export const defaultOption = {
   color: 'white',
   padding: '4px 8px',
   fontSize: '14px',
+
+  // container style
+  containerStyle: {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    pointerEvents: 'none',
+    zIndex: '999999',
+  },
 }
 
 export type ToastOption = typeof defaultOption
@@ -20,28 +30,29 @@ export async function toast(
   message: string,
   option: Partial<ToastOption> = {},
 ) {
-  const { hideAfter, className, transitionClassName, ...styleOption } = {
+  const {
+    hideAfter,
+    className,
+    transitionClassName,
+    containerStyle,
+    ...styleOption
+  } = {
     ...defaultOption,
     ...option,
+    containerStyle: {
+      ...defaultOption.containerStyle,
+      ...option.containerStyle,
+    },
   }
 
   const toastContainer = document.createElement('div')
-  Object.assign(toastContainer.style, {
-    position: 'fixed',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    pointerEvents: 'none',
-    zIndex: '999999',
-  })
+  Object.assign(toastContainer.style, containerStyle)
 
   const toastElement = document.createElement('div')
   toastElement.className = className
   toastElement.textContent = message
 
-  for (const [key, value] of Object.entries(styleOption)) {
-    (toastElement.style as any)[key] = value
-  }
+  Object.assign(toastElement.style, styleOption)
 
   toastContainer.appendChild(toastElement)
   document.body.appendChild(toastContainer)
