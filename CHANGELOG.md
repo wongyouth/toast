@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/wongyouth/toast/compare/v0.1.2...v0.2.0)
+
+### 🚀 Enhancements
+
+- Add to window on iife ([6a5daec](https://github.com/wongyouth/toast/commit/6a5daec))
+- Make container style customizable ([f58e6bb](https://github.com/wongyouth/toast/commit/f58e6bb))
+
+### 🏡 Chore
+
+- Update README ([595aa19](https://github.com/wongyouth/toast/commit/595aa19))
+- **release:** V0.1.3 ([edd02db](https://github.com/wongyouth/toast/commit/edd02db))
+
+### ❤️ Contributors
+
+- Ryan Wang ([@wongyouth](https://github.com/wongyouth))
+
 ## v0.1.3
 
 [compare changes](https://github.com/wongyouth/toast/compare/v0.1.2...v0.1.3)
