@@ -1,23 +1,26 @@
 # Show a notification without blocking other elements
 
-![ScreenShot](https://github.com/wongyouth/toast/raw/main/docs/screenshot.gif?raw=true)
-
 ## Features
 
-- Without any dependencies
-- Working with jQuery, Vue, React and others
-- Show a notification on the center of screen
-- Without blocking other elements
-- All CSS can be customized
-- Fade int out animation by default
+- Dependency-free
+- Non-blocking
+- Tiny footprint (~2kb)
+- Framework-agnostic (jQuery, Vue, React, etc.)
+- Displays centered notifications
+- Fully customizable CSS
+- Fade-in/out animation by default
 
 ## Usage
 
-#### Show a notification
+### Get Started
 
-toast("Copied")
+```
+toast("Clicked 2 times")
+```
 
-#### With option
+![ScreenShot](https://github.com/wongyouth/toast/raw/main/docs/screenshot.gif?raw=true)
+
+### Options
 
 Hide notification after 5 seconds.
 
@@ -25,10 +28,11 @@ Hide notification after 5 seconds.
 toast("Copied", { hideAfter: 5000 })
 ```
 
-#### Option
+#### Default Option
 
 - **hideAfter** - hidding the notification after this duration
 - **className** - Notification Class name
+- **transitionClassName** - Transition Class name. check [Animation](#animatin) below
 
 ```
 export const defaultOption = {
@@ -46,9 +50,9 @@ export const defaultOption = {
 };
 ```
 
-#### Animation
+### Animation
 
-By default, using css transition to do animation. It's same logic that Vue 3 transition use.
+By default, using css transition to do animation. It's the same logic that [Vue 3 transition][css-base-transition] is using.
 
 ```css
 .wy-toast-active {
@@ -68,42 +72,50 @@ By default, using css transition to do animation. It's same logic that Vue 3 tra
 }
 ```
 
-If you want to customize animation, you can provide a different transition className and add your own css styles.
+If you want to customize animation, you can add your styles to overwrite the styles.
 
-For example, with option transitionClassName: `notify`, you need to add 3 styles:
+Or you can also provide a different transition className and add your own css styles.  For example, with option transitionClassName: `notify`, you need to add 3 styles:
 
 - `notify-active`
 - `notify-from`
 - `notify-to`
 
-#### Common JS
+### ES Module, CDN
 
-require '@wongyouth/toast'
-
-If jQuery is available
-
-```
-$.toast("Message Copied")
-```
-
-Change default option
-
-```
-$.toast.option.className = 'toast'
-```
-
-#### Module
+#### ES Module
 
 ```
 import { toast, defaultOption } from '@wontyouth/toast'
 defaultOption.hideAfter = 5000
-toast("Message Copied")
+toast("Message Copied", { hideAfter: 2000})
+```
+
+#### From CDN
+
+```
+<script src='https://cdn.jsdelivr.net/npm/@wongyouth/toast'></script>
+<script>
+  Toast.toast('Toast')
+</script>
+```
+
+#### jQuery
+
+If jQuery is available
+
+```
+$.toast.option.hideAfter = 5000
+$.toast("Message Copied")
 ```
 
 ## credits to
 
 - [vite-vanilla-library-template](https://github.com/hywax/vite-vanilla-library-template)
+- [CSS transitions and transforms for beginners](https://thoughtbot.com/blog/transitions-and-transforms)
 
 ## License
 
 This script was created under the [MIT License](LICENSE).
+
+
+[css-base-transition]: https://vuejs.org/guide/built-ins/transition.html#css-based-transitions
