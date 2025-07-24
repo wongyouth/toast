@@ -58,10 +58,22 @@ export async function toast(
 declare global {
   interface Window {
     jQuery?: any
+    Toast?: any
   }
 }
 
-if (typeof window.jQuery !== 'undefined') {
-  toast.option = defaultOption
-  window.jQuery.toast = toast
+// Declare the build format variable that gets injected by the build process
+declare const BUILD_FORMAT: string | undefined
+
+// Only add to window when building for IIFE format
+if (typeof BUILD_FORMAT !== 'undefined' && BUILD_FORMAT === 'iife') {
+  if (typeof window !== 'undefined' && typeof window.jQuery !== 'undefined') {
+    toast.option = defaultOption
+    window.jQuery.toast = toast
+  } else if (typeof window !== 'undefined') {
+    window.Toast = {
+      toast,
+      option: defaultOption,
+    }
+  }
 }

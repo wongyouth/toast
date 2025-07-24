@@ -8,6 +8,22 @@ import packageJson from './package.json'
 
 const packageName = packageJson.name.split('/').pop() || packageJson.name
 
+const addFormat = {
+  name: 'add-format',
+  generateBundle(outputOptions, bundle) {
+    for (const fileName in bundle) {
+      const file = bundle[fileName]
+      // Check if it's an IIFE bundle
+      if (outputOptions.format === 'iife' && file.type === 'chunk') {
+        file.code = `(() => {
+  var BUILD_FORMAT = "${outputOptions.format}";
+  ${file.code};
+})()`
+      }
+    }
+  },
+}
+
 export default defineConfig({
   build: {
     lib: {
@@ -17,7 +33,7 @@ export default defineConfig({
       fileName: packageName,
     },
   },
-  plugins: [dts({ rollupTypes: true }), cssInjectedByJsPlugin()],
+  plugins: [dts({ rollupTypes: true }), cssInjectedByJsPlugin(), addFormat],
   test: {
     environment: 'jsdom',
   },

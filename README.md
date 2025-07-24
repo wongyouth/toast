@@ -74,7 +74,7 @@ By default, using css transition to do animation. It's the same logic that [Vue 
 
 If you want to customize animation, you can add your styles to overwrite the styles.
 
-Or you can also provide a different transition className and add your own css styles.  For example, with option transitionClassName: `notify`, you need to add 3 styles:
+Or you can also provide a different transition className and add your own css styles. For example, with option transitionClassName: `notify`, you need to add 3 styles:
 
 - `notify-active`
 - `notify-from`
@@ -95,6 +95,7 @@ toast("Message Copied", { hideAfter: 2000})
 ```
 <script src='https://cdn.jsdelivr.net/npm/@wongyouth/toast'></script>
 <script>
+  Toast.option.hideAfter = 5000
   Toast.toast('Toast')
 </script>
 ```
@@ -116,6 +117,5 @@ $.toast("Message Copied")
 ## License
 
 This script was created under the [MIT License](LICENSE).
-
 
 [css-base-transition]: https://vuejs.org/guide/built-ins/transition.html#css-based-transitions
