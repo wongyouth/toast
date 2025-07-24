@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/wongyouth/toast/compare/v0.1.2...v0.1.3)
+
+### 🚀 Enhancements
+
+- Add to window on iife ([6a5daec](https://github.com/wongyouth/toast/commit/6a5daec))
+
+### 🏡 Chore
+
+- Update README ([595aa19](https://github.com/wongyouth/toast/commit/595aa19))
+
+### ❤️ Contributors
+
+- Ryan Wang ([@wongyouth](https://github.com/wongyouth))
+
 ## v0.1.2
 
 [compare changes](https://github.com/wongyouth/toast/compare/v0.1.1...v0.1.2)
